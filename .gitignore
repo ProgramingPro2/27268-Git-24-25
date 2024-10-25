@@ -10,8 +10,8 @@
 *.dex
 
 # Java/JDK files
-*.class
-*.hprof
+#*.class
+#*.hprof
 
 # Generated files
 bin/
