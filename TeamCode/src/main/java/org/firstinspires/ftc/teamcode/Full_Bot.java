@@ -11,10 +11,10 @@ public class Full_Bot extends LinearOpMode {
     private DcMotor FR;
     private DcMotor FL;
     private DcMotor ArmUp;
-    private DcMotor ArmRotate; //Does not work
     private DcMotor Lift;
     private CRServo Intake;
     private CRServo ArmLength;
+    private CRServo ArmRotate;
 
     boolean Use_Arm = true;
     boolean Use_ArmRotate = true;
@@ -32,7 +32,7 @@ public class Full_Bot extends LinearOpMode {
         if (Use_Arm) {
             ArmUp = hardwareMap.get(DcMotor.class, "Arm");
             if (Use_ArmRotate) {
-                ArmRotate = hardwareMap.get(DcMotor.class, "ArmRotate");
+                ArmRotate = hardwareMap.get(CRServo.class, "ArmRotate");
             }
             if (Use_Intake) {
                 Intake = hardwareMap.get(CRServo.class, "Intake");
@@ -78,11 +78,11 @@ public class Full_Bot extends LinearOpMode {
                 if (Use_ArmRotate) {
 
                     if (gamepad2.right_stick_y > 0) {
-                        ArmRotate.setPower(gamepad2.right_stick_y/1.5);
+                        ArmRotate.setPower(gamepad2.right_stick_y);
                         telemetry.addData("ArmRotate Position", "up");
                     }
                     else if (gamepad2.right_stick_y < 0) {
-                        ArmRotate.setPower(gamepad2.right_stick_y/1.5);
+                        ArmRotate.setPower(gamepad2.right_stick_y);
                         telemetry.addData("ArmRotate Position", "down");
                     }
                     else {
